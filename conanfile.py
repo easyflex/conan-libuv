@@ -8,7 +8,7 @@ from conans.errors import ConanException
 
 class LibuvConan(ConanFile):
     name = "libuv"
-    version = "1.15.0"
+    version = "1.22.0"
     description = "Cross-platform asynchronous I/O "
     url = "https://github.com/bincrafters/conan-libuv"
     license = "MIT"
@@ -18,6 +18,7 @@ class LibuvConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
     root = name + "-" + version
+    build_requires = ['ninja_installer/1.8.2@bincrafters/stable', 'gyp_installer/20171101@bincrafters/stable']
 
     def configure(self):
         del self.settings.compiler.libcxx
